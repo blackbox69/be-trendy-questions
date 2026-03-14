@@ -2,8 +2,8 @@ name: Sync Questions from Google Sheets
 
 on:
   schedule:
-    - cron: '0 * * * *'  # প্রতি ঘন্টায়
-  workflow_dispatch:      # manual trigger button
+    - cron: '0 * * * *'
+  workflow_dispatch:
 
 jobs:
   sync:
@@ -29,18 +29,20 @@ jobs:
           with open("temp.csv", encoding="utf-8") as f:
               reader = csv.DictReader(f)
               for row in reader:
-                  questions.append({
-                      "id": int(row["id"]),
-                      "type": row["type"],
-                      "question": row["question"],
+                  # বাংলা column names
+                  q = {
+                      "id": int(row["#"]),
+                      "type": "logic",
+                      "question": row["প্রশ্ন"],
                       "options": [
-                          row["option1"],
-                          row["option2"],
-                          row["option3"],
-                          row["option4"]
+                          row["A"],
+                          row["B"],
+                          row["C"],
+                          row["D"]
                       ],
-                      "answer": int(row["answer"])
-                  })
+                      "answer": {"A":1,"B":2,"C":3,"D":4}.get(row["উত্তর"].strip(), 1)
+                  }
+                  questions.append(q)
           
           with open("questions.json", "w", encoding="utf-8") as f:
               json.dump(questions, f, ensure_ascii=False, indent=2)
