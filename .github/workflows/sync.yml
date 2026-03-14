@@ -1,0 +1,57 @@
+name: Sync Questions from Google Sheets
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # প্রতি ঘন্টায়
+  workflow_dispatch:      # manual trigger button
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Fetch and Convert
+        run: |
+          python3 << 'EOF'
+          import csv, json, urllib.request
+
+          url = "https://docs.google.com/spreadsheets/d/15aHhY2WSPiU1_cV9oy48u7DUW20jddu1/export?format=csv&gid=680654072"
+          
+          urllib.request.urlretrieve(url, "temp.csv")
+          
+          questions = []
+          with open("temp.csv", encoding="utf-8") as f:
+              reader = csv.DictReader(f)
+              for row in reader:
+                  questions.append({
+                      "id": int(row["id"]),
+                      "type": row["type"],
+                      "question": row["question"],
+                      "options": [
+                          row["option1"],
+                          row["option2"],
+                          row["option3"],
+                          row["option4"]
+                      ],
+                      "answer": int(row["answer"])
+                  })
+          
+          with open("questions.json", "w", encoding="utf-8") as f:
+              json.dump(questions, f, ensure_ascii=False, indent=2)
+          
+          print(f"✅ {len(questions)} questions synced!")
+          EOF
+
+      - name: Commit & Push
+        run: |
+          git config user.email "badboysblackbox@gmail.com"
+          git config user.name "blackbox69"
+          git add questions.json
+          git diff --staged --quiet || git commit -m "sync questions from sheets"
+          git push
