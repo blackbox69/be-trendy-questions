@@ -96,7 +96,7 @@
       "চিংগাম",
       "জ্বলন্ত অলীল",
       "অনন্ত জলীল",
-      "আন্দ্রেও টেট"
+      "এন্দ্রিও টেট"
     ],
     "answer": 2
   },
@@ -359,7 +359,7 @@
     "options": [
       "তুই মামা একটাতেও চান্স পাবি না, এইটাই রিয়েলিটি!",
       "এই শালা! তোর সিলেবাস শেষ হইসে?",
-      "তোমার সফলতার ভাগিদার সবাই; তোমার ব্যার্থতার ভাগিদার কেউ নয়!",
+      "তোমার সফলতার ভাগিদার সবাই; তোমার ব্যার্থতার ভাগিদার কেউ নয়",
       "একটা থাবর দেবো শালা!"
     ],
     "answer": 1
@@ -369,7 +369,7 @@
     "type": "logic",
     "question": "আপনার দেশে তেল আবিস্কৃত হলে নিচের কোন ঘটনা ঘটবে?",
     "options": [
-      "ব্যাপক উন্নয়ন হবে।",
+      "ব্যাপক উন্নয়ন হবে",
       "Feeling Proud American Army, Jhang Ke Maidan Mein Kade Na Harde",
       "Democracy is coming to save you!",
       "Your country's regime must change"
@@ -495,7 +495,7 @@
     "options": [
       "থেমে হাসি দেওয়া",
       "\"জি ভাই\" বলা",
-      "সৃষ্টিকর্তার নাম নেওয়া",
+      "কিছু করার নেই, কুকড",
       "মানিব্যাগ হাত দিয়ে ধরে রাখা"
     ],
     "answer": 2
@@ -628,8 +628,7 @@
     ],
     "answer": [
       0,
-      1,
-      2
+      1
     ]
   },
   {
@@ -736,7 +735,7 @@
       "Xefer",
       "Neha Kakkar",
       "Dhinchak Pooja",
-      "Momতাজ"
+      "Momtaz"
     ],
     "answer": 0
   },
@@ -767,30 +766,6 @@
   {
     "id": 62,
     "type": "logic",
-    "question": "বর্তমানে সেরা podcast host কে?",
-    "options": [
-      "Nafees Salim",
-      "Khaled Farhan",
-      "Khaled Hassan",
-      "Tama Rashid"
-    ],
-    "answer": 2
-  },
-  {
-    "id": 63,
-    "type": "logic",
-    "question": "লোকাল বাসে ঠিক কতজন মানুষ হলে হেল্পার মামা will say \"আর উইঠেন না, বাস ভরা\" instead of \"আসেন মামা প্রচুর জায়গা আসে, পুরা খালি বাস\"?",
-    "options": [
-      "Math error",
-      "Horizontal 8",
-      "অনির্ণেয়",
-      "অসংজ্ঞায়িত"
-    ],
-    "answer": 1
-  },
-  {
-    "id": 64,
-    "type": "logic",
     "question": "\"খেটে নয় চেটে বড় হও\" বাণীতে কে?",
     "options": [
       "সুফি সম্রাট দেওয়ানবাগী",
@@ -801,7 +776,7 @@
     "answer": 1
   },
   {
-    "id": 65,
+    "id": 63,
     "type": "logic",
     "question": "\"A well spent day in Toronto\" উক্তিটি কোন মহামানবের?",
     "options": [
@@ -813,7 +788,19 @@
     "answer": 2
   },
   {
-    "id": 66,
+    "id": 64,
+    "type": "logic",
+    "question": "বর্তমানে সেরা podcast host কে? ",
+    "options": [
+      "Nafees Salim",
+      "Khaled Farhan",
+      "Khaled Hassan",
+      "Tama Rashid"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 65,
     "type": "logic",
     "question": "When its about \"উল্টা পাল্টা কাজ করে নিজেকে W women, sigma women মনে করা\" you must go for",
     "options": [
@@ -825,7 +812,7 @@
     "answer": 0
   },
   {
-    "id": 67,
+    "id": 66,
     "type": "logic",
     "question": "আপনি গ্রামের চাচাতো ভাই হওয়ায় যে সমস্যায় সবচেয়ে বেশি ভুগছেন...",
     "options": [
@@ -837,14 +824,26 @@
     "answer": 2
   },
   {
-    "id": 68,
+    "id": 67,
     "type": "logic",
     "question": "বাংলাদেশের নিজস্ব অর্থায়নে এবং নিজস্ব টেকনোলজিতে নির্মিত প্রথম আর্টিফিশিয়াল ইন্টেলিজেন্স কোনটি?",
     "options": [
       "DeepSheikh",
-      "RajuTeAi",
+      "Chu*tGPT",
       "Gawk Gawk",
-      "Chu*tGPT"
+      "RajuTeAi"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 68,
+    "type": "logic",
+    "question": "লোকাল বাসে ঠিক কতজন মানুষ হলে হেল্পার মামা will say \"আর উইঠেন না, বাস ভরা\" instead of \"আসেন মামা প্রচুর জায়গা আসে, পুরা খালি বাস\"?",
+    "options": [
+      "Math error",
+      "Horizontal 8",
+      "অনির্ণেয়",
+      "অসংজ্ঞায়িত"
     ],
     "answer": 1
   },
