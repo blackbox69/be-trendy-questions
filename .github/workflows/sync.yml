@@ -1,26 +1,21 @@
 name: Sync Questions from Google Sheets
-
 on:
   schedule:
     - cron: '0 * * * *'
   workflow_dispatch:
-
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
-
       - name: Fetch and Convert
         run: |
           python3 << 'EOF'
           import csv, json, urllib.request
-
           url = "https://docs.google.com/spreadsheets/d/15aHhY2WSPiU1_cV9oy48u7DUW20jddu1/export?format=csv&gid=680654072"
           
           urllib.request.urlretrieve(url, "temp.csv")
@@ -29,18 +24,20 @@ jobs:
           with open("temp.csv", encoding="utf-8") as f:
               reader = csv.DictReader(f)
               for row in reader:
-                  # বাংলা column names
+                  answer_map = {"A": 0, "B": 1, "C": 2, "D": 3}
+                  raw_answer = row["উত্তর"].strip()
+                  
+                  if "/" in raw_answer:
+                      answer = [answer_map[x] for x in raw_answer.split("/") if x in answer_map]
+                  else:
+                      answer = answer_map.get(raw_answer, 0)
+                  
                   q = {
                       "id": int(row["#"]),
                       "type": "logic",
                       "question": row["প্রশ্ন"],
-                      "options": [
-                          row["A"],
-                          row["B"],
-                          row["C"],
-                          row["D"]
-                      ],
-                      "answer": {"A":1,"B":2,"C":3,"D":4}.get(row["উত্তর"].strip(), 1)
+                      "options": [row["A"], row["B"], row["C"], row["D"]],
+                      "answer": answer
                   }
                   questions.append(q)
           
@@ -49,7 +46,6 @@ jobs:
           
           print(f"✅ {len(questions)} questions synced!")
           EOF
-
       - name: Commit & Push
         run: |
           git config user.email "badboysblackbox@gmail.com"
