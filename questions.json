@@ -43,7 +43,7 @@
   {
     "id": 4,
     "type": "logic",
-    "question": "Sensation এর স্বনামধন্য Brand Ambassador কে?",
+    "question": "Sensation এর স্বনামDhonঅ Brand Ambassador কে?",
     "options": [
       "Andrew Tate",
       "Dhon Cena",
@@ -115,7 +115,7 @@
   {
     "id": 10,
     "type": "logic",
-    "question": "বাংলার পেপ Gandiওয়ালা কে?",
+    "question": "বাংলার পেপ Gandইওয়ালা কে?",
     "options": [
       "বাতেন",
       "রিফাত মাসুদ",
